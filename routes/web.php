@@ -9,8 +9,11 @@ Route::get('/', function () {
 
 Route::get('/home', [HomeController::class, 'index']);
 Route::get('/home/{id}/{name}', [HomeController::class, 'test'])->where(['id' => '[0-9]+', 'name' => '[a-zA-Z]+']);
-//where kısmı koşul koyuyor
 Route::view('/', 'home.index');
+
+//Admin
+Route::get('/admin', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('adminhome');
+
 
 Route::middleware([
     'auth:sanctum',
