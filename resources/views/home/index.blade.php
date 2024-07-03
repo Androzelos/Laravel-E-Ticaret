@@ -1,6 +1,6 @@
 @extends('layouts.home')
 
-@section('title', 'Yar dedin yardık')
+@section('title', 'Yar dedin yardık Github')
 @section('description')
     Açıklıyorum...
 @endsection
