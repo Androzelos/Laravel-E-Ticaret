@@ -20,6 +20,13 @@ class CategoryController extends Controller
         return view('admin.category', ['datalist' => $datalist], ['user' => $user]);
     }
 
+    public function add()
+    {
+        $user = Auth::user();
+        $datalist = DB::table('categories')->get()->where('parent_id', 0);
+        return view('admin.category_add', ['datalist' => $datalist] ,['user' => $user]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */
