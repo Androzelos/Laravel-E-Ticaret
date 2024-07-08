@@ -36,10 +36,11 @@
                         <!-- /.card-header -->
                         <!-- form start -->
                         <form role="form" action="{{route('admin_category_create')}}" method="post">
+                            @csrf
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>Parent</label>
-                                    <select class="form-control select2" name="status" style="width: 100%;">
+                                    <select class="form-control select2" name="parent_id" style="width: 200px;">
                                         <option value="0" selected="selected">Yeni Ana Kategori</option>
                                         @foreach($datalist as $data)
                                             <option value="{{$data->id}}">{{$data->title}}</option>
@@ -69,15 +70,10 @@
 
                                 <div class="form-group">
                                     <label>Status</label>
-                                    <select class="form-control select2" name="status" style="width: 100%;">
+                                    <select class="form-control select2" name="status" style="width: 100px;">
                                         <option selected="selected">False</option>
                                         <option>True</option>
                                     </select>
-                                </div>
-
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">Add Category</label>
                                 </div>
                             </div>
                             <!-- /.card-body -->

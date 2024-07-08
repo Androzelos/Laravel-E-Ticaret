@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -30,9 +31,20 @@ class CategoryController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $user = Auth::user();
+        $datalist = DB::table('categories')->get()->where('parent_id', 0);
+
+        DB::table('categories')->insert([
+            'parent_id' => $request->input('parent_id'),
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            'keywords' => $request->input('keywords'),
+            'slug' => $request->input('slug'),
+            'status' => $request->input('status')
+        ]);
+        return redirect()->route('admin_category_add');
     }
 
     /**
@@ -40,7 +52,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        echo "form geldi mi";
     }
 
     /**

@@ -66,6 +66,8 @@
                                 <td>{{$item->title}}</td>
                                 <td>{{$item->description}}</td>
                                 <td>{{$item->image}}</td>
+                                <td><a>Düzenle</a></td>
+                                <td><a href="{{route('admin_category_delete', ['id'=>$item->id])}}" onclick="return confirm('Silmek istediğinize emin misiniz?')">Sil</a></td>
                             </tr>
                         @endforeach
                         </tbody>
